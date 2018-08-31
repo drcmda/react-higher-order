@@ -3,14 +3,14 @@
 ## The old problem ...
 
 ```jsx
-const RenderProps = ({ children }) => children({ test: 123 })
+const RenderProps = ({ children }) => children({ value: 123 })
 
 class Test extends React.Component {
   componentDidUpdate() {
     // How the hell do i access render props in here???
   }
   render() {
-    return <RenderProps>{props => props.test}</RenderProps>
+    return <RenderProps>{props => props.value}</RenderProps>
   }
 }
 ```
@@ -20,21 +20,19 @@ class Test extends React.Component {
 ```jsx
 import hoc from 'react-higher-order'
 
-const RenderProps = ({ children }) => children({ test: 123 })
+const RenderProps = ({ children }) => children({ value: 123 })
 
-@hoc(RenderProps, (renderProps, ownProps) => ({
-  hello: renderProps[ownProps.accessor],
-}))
+@hoc(RenderProps, (props, ownProps) => ({ number: props[ownProps.accessor] }))
 class Test extends React.Component {
   componentDidUpdate() {
-    console.log(this.props.hello)
+    console.log(this.props.number)
   }
   render() {
-    return this.props.hello
+    return this.props.number
   }
 }
 
-ReactDOM.render(<Test accessor="test" />, document.querySelector('#root'))
+ReactDOM.render(<Test accessor="value" />, document.querySelector('#root'))
 ```
 
 ## API
