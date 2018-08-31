@@ -1,0 +1,68 @@
+{
+  "name": "react-higher-order",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index",
+  "module": "dist/index.es",
+  "sideEffects": false,
+  "scripts": {
+    "prebuild": "rimraf dist",
+    "build": "rollup -c",
+    "prepare": "npm run build",
+    "test": "echo no tests yet"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "prettier": {
+    "semi": false,
+    "trailingComma": "es5",
+    "singleQuote": true,
+    "jsxBracketSameLine": true,
+    "tabWidth": 2,
+    "printWidth": 80
+  },
+  "lint-staged": {
+    "*.{js,md}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/drcmda/react-higher-order.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/drcmda/react-higher-order/issues"
+  },
+  "homepage": "https://github.com/drcmda/react-higher-order#readme",
+  "devDependencies": {
+    "@babel/core": "7.0.0",
+    "@babel/plugin-transform-runtime": "7.0.0",
+    "@babel/preset-env": "7.0.0",
+    "@babel/preset-react": "7.0.0",
+    "@babel/runtime": "7.0.0",
+    "babel-core": "7.0.0-bridge.0",
+    "babel-plugin-annotate-pure-calls": "0.3.0",
+    "babel-plugin-transform-react-remove-prop-types": "0.4.15",
+    "husky": "^1.0.0-rc.13",
+    "jest": "23.5.0",
+    "lint-staged": "^7.2.2",
+    "prettier": "^1.14.2",
+    "rimraf": "2.6.2",
+    "rollup": "0.65.0",
+    "rollup-plugin-babel": "4.0.3-0"
+  },
+  "peerDependencies": {
+    "prop-types": "15.x.x",
+    "react": ">= 16.x.x",
+    "react-dom": ">= 16.x.x"
+  },
+  "dependencies": {
+    "@babel/runtime": "7.0.0"
+  }
+}
