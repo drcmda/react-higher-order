@@ -39,7 +39,7 @@ ReactDOM.render(<Test accessor="test" />, document.querySelector('#root'))
 
 ## API
 
-    hoc(RenderPropsComponent, mapRenderPropsToProps)(WrappedComponent)
+    hoc(RenderPropsComponent, mapRenderPropsToProps = props => props)(WrappedComponent)
 
 - `RenderPropsComponent` is the component you want to fold into
 - `mapRenderPropsToProps` is optional and defaults to `props => props`, use it to pick the props you are interested in. You can also use this to selectively access only a portion of the RenderPropComponent's props, your own component will then only render if these props change. You have access to the components own-props as a second argument.
